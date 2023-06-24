@@ -1,0 +1,25 @@
+@import "./../constants/colors.css";
+
+.main-sidebar {
+  background-color: var(--bg-black);
+  width: 117px;
+  height: 100%;
+}
+
+.main-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: auto;
+}
+
+.main-sidebar__nav__link {
+  display: flex;
+  margin-top: 20px;
+}
+
+.main-sidebar__nav__link:first-of-type {
+  margin-top: 80px;
+}

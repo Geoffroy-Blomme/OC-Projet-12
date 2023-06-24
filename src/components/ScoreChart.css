@@ -1,0 +1,27 @@
+.score-chart {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.score-text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  height: 73%;
+  width: 73%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.score-title {
+  position: absolute;
+  left: 30px;
+  top: 24px;
+  font-family: "Roboto";
+  font-size: 15px;
+}

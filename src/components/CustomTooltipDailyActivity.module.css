@@ -1,0 +1,11 @@
+.custom-tooltip {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-family: "Roboto";
+}
+
+.label {
+  padding: 15px 10px 15px 10px;
+  margin: 0;
+}

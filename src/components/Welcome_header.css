@@ -1,0 +1,17 @@
+@import "./../constants/common.css";
+.welcome-header {
+  text-align: left;
+}
+
+.welcome-header__welcome {
+  font-size: 48px;
+}
+
+.welcome-header__welcome__name {
+  color: var(--main-red);
+}
+
+.welcome-header__description {
+  margin-top: 41px;
+  font-size: 18px;
+}

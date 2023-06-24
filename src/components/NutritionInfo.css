@@ -1,0 +1,29 @@
+.nutrition-info {
+  background-color: #fbfbfb;
+  width: 258px;
+  height: 124px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.nutrition-info__img {
+  width: 60px;
+  height: 60px;
+  margin-left: 32px;
+}
+
+.nutrition-info__texts {
+  margin-left: 32px;
+  text-align: left;
+}
+
+.nutrition-info__texts__value {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nutrition-info__texts__type {
+  color: #74798c;
+  font-size: 14px;
+}

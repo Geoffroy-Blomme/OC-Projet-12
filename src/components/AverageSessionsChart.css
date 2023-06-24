@@ -1,0 +1,5 @@
+@import "./../constants/common.css";
+
+.average-session-chart {
+  background-color: var(--main-red);
+}

@@ -1,0 +1,47 @@
+@import "./../constants/common.css";
+.main-header {
+  position: inherit;
+  z-index: 2;
+}
+.main-sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.main-content {
+  margin-left: 117px;
+  padding-left: var(--common-margin);
+  padding-top: 68px;
+}
+
+.user-infos {
+  display: flex;
+}
+
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.activity-container {
+  display: flex;
+  margin-top: 28px;
+}
+
+.activity-container__elt {
+  width: calc(100% - 15px);
+  margin-right: 30px;
+}
+
+.activity-container__elt:last-of-type {
+  margin-right: 0px;
+}
+
+.nutrition-info-container {
+  margin-left: 31px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
