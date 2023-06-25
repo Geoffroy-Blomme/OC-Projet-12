@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FormatDataChart from "../services/FormatDataChart";
 import {
   LineChart,
@@ -7,15 +7,20 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
 } from "recharts";
 import CustomTooltipAverageSession from "./CustomTooltipAverageSession";
-
+import {getAverageSessions} from "../services/ApiCalls";
 export default function AverageSessionChart(props) {
-  const { data } = props;
+  const { id } = props;
+  const [data, setData] = useState([]);
   const formatterData = new FormatDataChart();
-  const formattedData = formatterData.formatDataAverageSessions(data);
-  console.log(formattedData);
+    const getData = async () => {
+      const request = await getAverageSessions(id);
+      setData(request.data);
+    }
+    getData();
+  const formattedData = formatterData.formatDataAverageSessions(data.sessions);
+  
   return (
     <div
       className="average-session-chart"
@@ -31,8 +36,8 @@ export default function AverageSessionChart(props) {
           data={formattedData}
           margin={{ top: 24, right: 29, left: 32, bottom: 23 }}
         >
-          <XAxis dataKey="day" axisLine={false} tickLine={false}></XAxis>
-          <YAxis dataKey="sessionLength" hide={true}></YAxis>
+          <XAxis dataKey="day" axisLine={false} tickLine={false} stroke="white"  ></XAxis>
+          <YAxis dataKey="sessionLength" hide={true} padding={{bottom:50}} ></YAxis>
           <defs>
             <linearGradient id="line-gradient">
               <stop offset="0%" stopColor="#FFFFFF" stopOpacity={0.3}></stop>

@@ -17,7 +17,6 @@ import "./Home.css";
 import { useEffect } from "react";
 export default function Home() {
   const currentPath = useParams();
-  console.log(userData);
   let currentUserData = null;
 
   const getCurrentUserData = () => {
@@ -30,7 +29,6 @@ export default function Home() {
 
   getCurrentUserData();
 
-  console.log(currentUserData);
 
   return (
     <>
@@ -43,21 +41,21 @@ export default function Home() {
         />
         <div className="user-infos">
           <div className="charts-container">
-            <DailyActivity data={currentUserData.sessions} />
+            <div className="daily-activity"><DailyActivity id={currentUserData.id} /></div>
 
             <div className="activity-container">
               <div className="activity-container__elt">
                 <AverageSessionChart
-                  data={currentUserData["sessions-average"]}
+                  id={currentUserData.id}
                 />
               </div>
 
               <div className="activity-container__elt">
-                <TypeActivityChart data={currentUserData["performance"]} />
+                <TypeActivityChart id={currentUserData.id} />
               </div>
 
               <div className="activity-container__elt">
-                <ScoreChart data={currentUserData["todayScore"]}></ScoreChart>
+                <ScoreChart id={currentUserData.id}></ScoreChart>
               </div>
             </div>
           </div>

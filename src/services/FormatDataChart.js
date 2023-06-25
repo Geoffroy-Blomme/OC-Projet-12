@@ -1,13 +1,15 @@
 export default class FormatDataChart {
   formatDataBarChart(data) {
     let dataArray = [];
-    data.map((session, index) => {
-      dataArray.push({
-        name: index + 1,
-        kilogram: session.kilogram,
-        calories: session.calories,
+    if(data){
+      data.map((session, index) => {
+        dataArray.push({
+          name: index + 1,
+          kilogram: session.kilogram,
+          calories: session.calories,
+        });
       });
-    });
+    }
     return dataArray;
   }
   formatDataAverageSessions(data) {
@@ -27,7 +29,6 @@ export default class FormatDataChart {
 
   formatActivityType(performanceData) {
     let dataArray = [];
-    console.log(performanceData);
     let newKinds = [
       "Cardio",
       "Energie",
@@ -36,7 +37,7 @@ export default class FormatDataChart {
       "Vitesse",
       "Intensité",
     ];
-    if (performanceData) {
+    if (performanceData.data) {
       performanceData.data.map((activityType) => {
         let formattedElt = {
           activityValue: activityType.value,

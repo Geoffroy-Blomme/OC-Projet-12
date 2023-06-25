@@ -17,6 +17,7 @@
 
 .user-infos {
   display: flex;
+  margin-top: 71px;
 }
 
 .charts-container {
@@ -24,6 +25,7 @@
   flex-direction: column;
   width: 70%;
 }
+
 
 .activity-container {
   display: flex;
@@ -44,4 +46,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+
+@media screen and (max-width:1350px) {
+  .activity-container{
+    flex-direction: column;
+  }
+  .activity-container__elt{
+    width: 60%;
+    margin: auto;
+    margin-bottom: 25px;
+  }
+  .activity-container__elt:last-of-type{
+    margin-right: auto;
+  }
+  .nutrition-info-container{
+    justify-content: flex-start;
+  }
+  .nutrition-info{
+    margin-bottom: 25px;
+  }
 }

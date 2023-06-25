@@ -1,6 +1,8 @@
 import React from "react";
 import FormatDataChart from "../services/FormatDataChart";
 import CustomTooltip from "./CustomToolTipDailyActivity";
+import { useState, useEffect } from "react";
+import { getDailyActivity } from "../services/ApiCalls";
 import {
   BarChart,
   XAxis,
@@ -12,11 +14,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 export default function DailyActivity(props) {
-  const { data } = props;
-
-  const chartDataFormatter = new FormatDataChart();
-  const formattedData = chartDataFormatter.formatDataBarChart(data);
-
+  const { id } = props;
+  const [data, setData] = useState([]);
+  const formatterData = new FormatDataChart();
+  const getData = async () => {
+    const request = await getDailyActivity(id);
+    setData(request.data);
+  }
+  getData();
+  const formattedData = formatterData.formatDataBarChart(data.sessions);
+  
   return (
     <div
       style={{
