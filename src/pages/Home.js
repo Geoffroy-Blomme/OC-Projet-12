@@ -14,7 +14,6 @@ import ScoreChart from "../components/ScoreChart";
 
 import { useParams } from "react-router";
 import "./Home.css";
-import { useEffect } from "react";
 export default function Home() {
   const currentPath = useParams();
   let currentUserData = null;
@@ -23,6 +22,7 @@ export default function Home() {
     for (let i = 0; i < userData.users.length; i++) {
       if (userData.users[i].id === currentPath.id) {
         currentUserData = userData.users[i];
+        console.log(currentUserData);
       }
     }
   };

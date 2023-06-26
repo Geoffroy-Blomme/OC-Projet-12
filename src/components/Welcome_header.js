@@ -3,7 +3,6 @@ import "./Welcome_header.css";
 
 export default function WelcomeHeader(props) {
   const { name, description } = props;
-  console.log(description);
   return (
     <div className="welcome-header">
       <div className="welcome-header__welcome">

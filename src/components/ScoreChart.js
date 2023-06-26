@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FormatDataChart from "../services/FormatDataChart";
 import "./ScoreChart.css";
 import { RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
@@ -12,9 +12,15 @@ export default function ScoreChart(props) {
     const request = await getTodayScore(id);
     setData(request.data);
   }
-  getData();
+  useEffect(()=> {
+    getData();
+  },[])
+  if(data.length === 0){
+    return <></>;
+  }
   const formattedData = formatterData.formatTodayScore(data.todayScore);
-  let percentageValue = data.todayScore * 100;
+  console.log(formattedData);
+  let percentageValue = formattedData[0].value;
   const startAngleDegrees = 90;
   return (
     <div
