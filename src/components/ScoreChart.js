@@ -19,7 +19,6 @@ export default function ScoreChart(props) {
     return <></>;
   }
   const formattedData = formatterData.formatTodayScore(data.todayScore);
-  console.log(formattedData);
   let percentageValue = formattedData[0].value;
   const startAngleDegrees = 90;
   return (

@@ -16,10 +16,10 @@ export default class FormatDataChart {
     let dataArray = [];
     let daysOfWeek = ["L", "M", "M", "J", "V", "S", "D"];
     if (data) {
-      data.map((averageSesssion, index) => {
+      data.map((averageSession, index) => {
         let formattedElt = {
           day: daysOfWeek[index],
-          sessionLength: data[index].sessionLength,
+          sessionLength: averageSession.sessionLength,
         };
         dataArray.push(formattedElt);
       });

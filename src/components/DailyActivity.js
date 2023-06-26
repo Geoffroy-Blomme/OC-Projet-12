@@ -21,7 +21,12 @@ export default function DailyActivity(props) {
     const request = await getDailyActivity(id);
     setData(request.data);
   }
-  getData();
+  useEffect(()=> {
+    getData();
+  },[])
+  if(data.length === 0){
+    return <></>;
+  }
   const formattedData = formatterData.formatDataBarChart(data.sessions);
   
   return (

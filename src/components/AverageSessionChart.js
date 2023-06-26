@@ -18,7 +18,12 @@ export default function AverageSessionChart(props) {
       const request = await getAverageSessions(id);
       setData(request.data);
     }
-    getData();
+    useEffect(()=> {
+      getData();
+    },[])
+    if(data.length === 0){
+      return <></>;
+    }
   const formattedData = formatterData.formatDataAverageSessions(data.sessions);
   
   return (

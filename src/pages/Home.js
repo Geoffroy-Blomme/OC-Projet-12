@@ -11,24 +11,30 @@ import carbsIcon from "./../assets/carbs-icon.png";
 import fatIcon from "./../assets/fat-icon.png";
 import TypeActivityChart from "../components/TypeActivityChart";
 import ScoreChart from "../components/ScoreChart";
-
+import { useState } from "react";
+import { getUserInformation } from "../services/ApiCalls";
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import "./Home.css";
 export default function Home() {
   const currentPath = useParams();
-  let currentUserData = null;
 
-  const getCurrentUserData = () => {
-    for (let i = 0; i < userData.users.length; i++) {
-      if (userData.users[i].id === currentPath.id) {
-        currentUserData = userData.users[i];
-        console.log(currentUserData);
-      }
-    }
-  };
+  const [currentUserData, setCurrentUserData] = useState([]);
 
-  getCurrentUserData();
 
+  const getData = async () => {
+    const request = await getUserInformation(currentPath.id);
+    setCurrentUserData(request.data);
+  }
+  useEffect(()=> {
+    getData();
+  },[])  
+
+  
+  if(currentUserData.length === 0){
+    return <></>
+  }
+  console.log(currentUserData)
 
   return (
     <>

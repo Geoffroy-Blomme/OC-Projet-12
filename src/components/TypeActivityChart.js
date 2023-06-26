@@ -1,6 +1,6 @@
 import React from "react";
 import FormatDataChart from "../services/FormatDataChart";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { getPerformance } from "../services/ApiCalls";
 import {
   RadarChart,
@@ -18,7 +18,12 @@ export default function TypeActivityChart(props) {
     const request = await getPerformance(id);
     setData(request.data);
   }
-  getData();
+  useEffect(()=> {
+    getData();
+  },[])
+  if(data.length === 0){
+    return <></>;
+  }
   const formattedData = formatterData.formatActivityType(data);
   return (
     <div
