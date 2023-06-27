@@ -16,7 +16,7 @@ export default function AverageSessionChart(props) {
   const formatterData = new FormatDataChart();
     const getData = async () => {
       const request = await getAverageSessions(id);
-      setData(request.data);
+      setData(request);
     }
     useEffect(()=> {
       getData();

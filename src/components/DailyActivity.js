@@ -19,7 +19,7 @@ export default function DailyActivity(props) {
   const formatterData = new FormatDataChart();
   const getData = async () => {
     const request = await getDailyActivity(id);
-    setData(request.data);
+    setData(request);
   }
   useEffect(()=> {
     getData();

@@ -23,14 +23,12 @@ export default function Home() {
 
   const getData = async () => {
     const request = await getUserInformation(currentPath.id);
-    setCurrentUserData(request.data);
+    setCurrentUserData(request);
   }
 
   useEffect(()=> {
     getData();
   },[])  
-
-  
   if(currentUserData.length === 0){
     return <></>
   }

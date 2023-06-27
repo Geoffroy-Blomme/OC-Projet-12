@@ -10,7 +10,7 @@ export default function ScoreChart(props) {
   const formatterData = new FormatDataChart();
   const getData = async () => {
     const request = await getTodayScore(id);
-    setData(request.data);
+    setData(request);
   }
   useEffect(()=> {
     getData();
