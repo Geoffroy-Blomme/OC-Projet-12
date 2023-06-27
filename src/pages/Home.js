@@ -1,6 +1,5 @@
 import MainHeader from "../components/Main_header";
 import MainSideBar from "../components/Main_sidebar";
-import userData from "./../assets/Userdata.json";
 import WelcomeHeader from "./../components/Welcome_header";
 import NutritionInfo from "../components/NutritionInfo";
 import DailyActivity from "../components/DailyActivity";
@@ -26,6 +25,7 @@ export default function Home() {
     const request = await getUserInformation(currentPath.id);
     setCurrentUserData(request.data);
   }
+
   useEffect(()=> {
     getData();
   },[])  
@@ -34,7 +34,6 @@ export default function Home() {
   if(currentUserData.length === 0){
     return <></>
   }
-  console.log(currentUserData)
 
   return (
     <>
@@ -69,7 +68,7 @@ export default function Home() {
             <NutritionInfo
               url={caloriesIcon}
               value={currentUserData.keyData.calorieCount}
-              unit={"kCal"}
+              unit={" kCal"}
               type={"Calories"}
             />
             <NutritionInfo
